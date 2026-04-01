@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from app import app
 import os
 import numpy as np
 from tensorflow.keras.models import load_model
@@ -90,4 +91,5 @@ def uploaded_file(filename):
     return send_from_directory(UPLOAD_FOLDER, filename)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.enviroment.get("PORT", 4000))
+    app.run(host ="0.0.0.0", port=port)
