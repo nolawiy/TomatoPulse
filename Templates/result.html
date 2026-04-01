@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>🍅 AI Tomato Disease Detector</h2>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h1>Analysis Result</h1>
+            <p class="subtitle">Here’s what our AI found:</p>
+
+            <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="img" class="result-image">
+
+            <h2>Prediction</h2>
+            <p class="prediction"><strong>{{ prediction }}</strong></p>
+            <p class="confidence"><strong>Accuracy: {{ confidence }}%</strong></p>
+        </div>
+
+        {% if t1 %}
+        <div class="card info">
+            <h2 class="how-title">Treatment</h2>
+            <ul class="how-list">
+                <li>{{ t1 }}</li>
+                <li>{{ t2 }}</li>
+                <li>{{ t3 }}</li>
+                <li>{{ t4 }}</li>
+                <li>{{ t5 }}</li>
+            </ul>
+
+            <h2 class="how-title">Causes</h2>
+            <ul class="how-list">
+                <li>{{ c1 }}</li>
+                <li>{{ c2 }}</li>
+                <li>{{ c3 }}</li>
+                <li>{{ c4 }}</li>
+                <li>{{ c5 }}</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    <div class="button-container">
+        <a href="{{ url_for('home') }}" class="btn-secondary">← Back to Home</a>
+    </div>
+    <footer>
+        <p>Science Fair Project | AI Tomato Disease Detection | 2026</p>
+    </footer>
+
+</body>
+
+</html>

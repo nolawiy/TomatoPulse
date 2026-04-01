@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Disease Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>🍅 AI Tomato Disease Detector</h2>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h1 class="card-title">Upload Tomato Leaf Image</h1>
+            <p class="subtitle">Our AI will detect the disease</p>
+
+            <form method="post" enctype="multipart/form-data">
+                <label for="file-upload" class="custom-file-upload">
+                    📁 Choose Tomato Leaf Image
+                </label>
+                <input id="file-upload" type="file" name="Image" required>
+                <p id="file-name">No file chosen</p>                
+                <button type="submit" class="btn">🔬Analyze Image</button>
+            </form>
+        </div>
+
+        <div class="card info">
+            <h2 class="how-title">How it works</h2>
+            <ul class="how-list">
+                <li>Upload tomato leaf image</li>
+                <li>Click "Analyze Image"</li>
+                <li>AI analyzes the image</li>
+                <li>Result is displayed</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Science Fair Project | AI Tomato Disease Detection | 2026</p>
+    </footer>
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Analyzing your tomato leaf...</p>
+    </div>
+    <script>
+        const fileInput = document.getElementById('file-upload');
+        const fileName = document.getElementById('file-name');
+
+        fileInput.addEventListener('change', function () {
+            if (this.files.length > 0) {
+                fileName.textContent = "Selected: " + this.files[0].name;
+            } else {
+                fileName.textContent = "No file chosen";
+            }
+        });
+        const form = document.querySelector("form");
+        const overlay = document.getElementById("loading-overlay");
+
+        form.addEventListener("submit", function () {
+            overlay.style.display = "flex"; // Show overlay on submit
+        });
+    </script>
+</body>
+</html>
