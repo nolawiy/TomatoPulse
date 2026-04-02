@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
-from app import app
 import os
 import numpy as np
 from tensorflow.keras.models import load_model
