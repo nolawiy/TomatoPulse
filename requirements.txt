@@ -1,6 +1,5 @@
 flask
-tensorflow
+gunicorn
 numpy
 pillow
-gunicorn
-python 3.11
+tensorflow-cpu
