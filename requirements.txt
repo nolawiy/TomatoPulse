@@ -3,3 +3,4 @@ tensorflow
 numpy
 pillow
 gunicorn
+python 3.11
